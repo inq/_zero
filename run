@@ -1,0 +1,3 @@
+#!/bin/bash
+erlc *.erl
+erl -noshell -s boot start
