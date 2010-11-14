@@ -1,4 +1,4 @@
-s-module(route).
+-module(route).
 -export([parse/3]).
 
 
