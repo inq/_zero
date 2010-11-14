@@ -1,7 +1,7 @@
 -module(tcp).
 -export([listen/1]).
--export([eval/2]).
-
+-export([eval/2, recv_request/1]).
+-define(VERSION, 2).
 -define(TCP_OPTIONS, 
 	[binary, {packet, 0}, {active, false}, {reuseaddr, true}]).
 
@@ -16,7 +16,6 @@ eval(Code, Args) ->
   {value, Result, _} = erl_eval:exprs(Parsed, Bindings),
   Result.
   
-
 listen(Port) ->
   {ok, LSocket} = gen_tcp:listen(Port, ?TCP_OPTIONS),
   accept(LSocket).
