@@ -4,8 +4,7 @@
 parse(Data) -> lists:reverse(closed(Data, [], [])).
 
 % render
-render([], _) ->
-  [];
+render([], _) -> [];
 render([H|T], Env) ->
   case H of
     {inline, Inline} ->
@@ -31,7 +30,7 @@ interp(Inline) ->
   Form.
 
 
-% yet the bracket is not opened
+% the bracket is not opened yet
 closed([], Acc, Result) -> 
   [{data, lists:reverse(Acc)}|Result];
 closed([$<,$%|R], Acc, Result) -> 
